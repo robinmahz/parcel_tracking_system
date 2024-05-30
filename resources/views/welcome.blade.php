@@ -28,14 +28,15 @@
                 <input
                     class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
                     type="text" placeholder="Tracking Number" aria-label="Tracking Number" name="number">
-                <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" type="submit">
+                <button id="about" class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+                    type="submit">
                     Track
                 </button>
             </div>
         </form>
 
         <!-- About Us Section -->
-        <section class="text-gray-700" id="about">
+        <section class="text-gray-700">
             <div class="container mx-auto px-6 py-12">
                 <h3 class="text-3xl font-bold text-gray-800 mb-6">About Us</h3>
                 <div class="flex flex-wrap -mx-4">
@@ -60,7 +61,8 @@
                             src="https://img.freepik.com/free-vector/delivery-service-with-masks-concept_23-2148498421.jpg?t=st=1716970152~exp=1716973752~hmac=f5122ab384012bcec3efcc11f5381f2f23c4f475acdd324c4fc02db1fc705f08&w=1480"
                             alt="Company Image 3">
                         <h4 class="text-xl font-bold mb-2">Our Values</h4>
-                        <p>We believe in transparency, efficiency, and customer satisfaction. Our team is dedicated to
+                        <p id="contact">We believe in transparency, efficiency, and customer satisfaction. Our team is
+                            dedicated to
                             making sure your parcels arrive safely and on time.</p>
                     </div>
                 </div>
@@ -68,45 +70,52 @@
         </section>
 
         <!-- Contact Us Section -->
-        <section id="contact" class="bg-white py-12">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h3>
-                <div class="max-w-2xl mx-auto bg-gray-100 p-8 rounded-lg shadow-lg">
-                    <form class="space-y-6" method="POST" action="/">
-                        @csrf
-                        <div>
-                            <label class="block text-gray-700 text-lg font-bold mb-2" for="name">Name</label>
-                            <input
-                                class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="name" type="text" placeholder="Your Name" name="name">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-lg font-bold mb-2" for="email">Email</label>
-                            <input
-                                class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="email" type="email" placeholder="Your Email" name="email">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-lg font-bold mb-2" for="phone">Phone</label>
-                            <input
-                                class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="phone" type="tel" placeholder="Your Phone Number" name="phone">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-lg font-bold mb-2" for="message">Message</label>
-                            <textarea
-                                class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="message" rows="4" placeholder="Your Message" name="message"></textarea>
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <button
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="submit">
-                                Send
-                            </button>
-                        </div>
-                    </form>
-                </div>
+
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us
+                </h2>
+                <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical
+                    issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.
+                </p>
+                <form action="/" method="POST" class="space-y-8">
+                    @csrf
+                    <div>
+                        <label for="name"
+                            class="block mb-2 text-md font-medium text-gray-900 dark:text-gray-300 text-left">Your
+                            name</label>
+                        <input type="text" id="name" name="name"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="Name" required>
+                    </div>
+                    <div>
+                        <label for="email"
+                            class="block mb-2 text-md font-medium text-gray-900 dark:text-gray-300 text-left">Your
+                            email</label>
+                        <input type="email" id="email" name="email"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="Email" required>
+                    </div>
+                    <div>
+                        <label for="phone"
+                            class="block mb-2 text-md font-medium text-gray-900 dark:text-gray-300 text-left">Your
+                            Phone</label>
+                        <input type="phone" id="phone" name="phone"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="phone" required>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="message"
+                            class="block mb-2 text-md font-medium text-gray-900 dark:text-gray-400 text-left">Your
+                            message</label>
+                        <textarea id="message" rows="6" name="message"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Leave a comment..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 ">Send
+                        message</button>
+                </form>
             </div>
         </section>
     </main>

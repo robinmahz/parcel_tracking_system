@@ -31,7 +31,7 @@ class ParcelController extends Controller
     public function store(Request $request)
     {
         Parcel::create($request->all());
-        return redirect('/dashboard');
+        return redirect('/parcelDetails/create');
     }
 
     /**
