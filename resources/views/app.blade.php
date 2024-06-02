@@ -8,7 +8,17 @@
     @vite('resources/css/app.css')
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
+    <style>
+        body,
+        html {
+            font-family: Poppins, sans-serif !important;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-sans ">
@@ -28,8 +38,8 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 ParcelTrack. All rights reserved. Designed by <a href="https://www.apptechnologies.co/"
-                    target="_blank" rel="noopener noreferrer">AppTechnologies</a></p>
+            <p>&copy; 2024 Direct way. All rights reserved. Designed by <a href="https://www.apptechnologies.co/"
+                    target="_blank" rel="noopener noreferrer">App Technologies</a></p>
         </div>
     </footer>
 </body>

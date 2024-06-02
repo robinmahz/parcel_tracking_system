@@ -23,7 +23,7 @@
             <div class="justify-center py-8 pl-24">
                 <a href="/">
                     <img src="https://directwaycargo.com/wp-content/uploads/2012/02/directwaycargo.png" alt=""
-                        class="w-[13.25rem] mb-4">
+                        class="w-[13.25rem] mb-4 bg-black py-4">
                 </a>
             </div>
             {{ $slot }}

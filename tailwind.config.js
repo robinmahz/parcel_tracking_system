@@ -15,7 +15,6 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
             },
         },
     },

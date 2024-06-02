@@ -11,9 +11,7 @@
                 </p>
             </div>
             <div class="lg:w-1/2">
-                <img class="w-full h-auto rounded-lg shadow-lg"
-                    src="https://img.freepik.com/free-vector/delivery-man-with-boxes-car-gives-package-client-parcel-carton-courier-person-postman-transport-express_1284-41994.jpg?t=st=1716970035~exp=1716973635~hmac=b2a2141786701b1b452cded19186c0421c087619ac627c702d28610ed7b4b1ae&w=1380"
-                    alt="Parcel Tracking">
+                <img class="w-full h-auto rounded-lg shadow-lg" src="{{ asset('images/banner.jpg') }}" alt="Parcel Tracking">
             </div>
         </div>
     </section>
@@ -41,24 +39,21 @@
                 <h3 class="text-3xl font-bold text-gray-800 mb-6">About Us</h3>
                 <div class="flex flex-wrap -mx-4">
                     <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                        <img class="rounded-lg shadow-lg mb-4"
-                            src="https://img.freepik.com/free-vector/delivery-man-unload-delivery-car-boxes-transportation-cargo-cardboard-vehicle_1284-42006.jpg?t=st=1716970195~exp=1716973795~hmac=3009d12f70c9297d01e766eb91c650017e2ddf642950fcf36e16d0b446de2f5f&w=1480"
+                        <img class="rounded-lg shadow-lg mb-4 h-[15rem] mx-auto" src="{{ asset('images/mission.jpg') }}"
                             alt="Company Image 1">
                         <h4 class="text-xl font-bold mb-2">Our Mission</h4>
                         <p>We aim to provide the fastest and most reliable parcel tracking service in the industry,
                             ensuring your packages are always in good hands.</p>
                     </div>
                     <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                        <img class="rounded-lg shadow-lg mb-4"
-                            src="https://img.freepik.com/free-vector/taxi-app-interface-concept_23-2148496102.jpg?t=st=1716970513~exp=1716974113~hmac=9b2672e8d805f9e19c7c02410ebdea87db02b863ed19f4a182303a421d468d5b&w=1480"
+                        <img class="rounded-lg shadow-lg mb-4 h-[15rem] mx-auto" src="{{ asset('images/vision.jpg') }}"
                             alt="Company Image 2">
                         <h4 class="text-xl font-bold mb-2">Our Vision</h4>
                         <p>To be the leading global provider of logistics and parcel tracking solutions, connecting
                             people and businesses with seamless delivery experiences.</p>
                     </div>
                     <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                        <img class="rounded-lg shadow-lg mb-4"
-                            src="https://img.freepik.com/free-vector/delivery-service-with-masks-concept_23-2148498421.jpg?t=st=1716970152~exp=1716973752~hmac=f5122ab384012bcec3efcc11f5381f2f23c4f475acdd324c4fc02db1fc705f08&w=1480"
+                        <img class="rounded-lg shadow-lg mb-4 h-[15rem] mx-auto" src="{{ asset('images/value.jpg') }}"
                             alt="Company Image 3">
                         <h4 class="text-xl font-bold mb-2">Our Values</h4>
                         <p id="contact">We believe in transparency, efficiency, and customer satisfaction. Our team is

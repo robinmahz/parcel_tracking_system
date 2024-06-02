@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <img src="https://directwaycargo.com/wp-content/uploads/2012/02/directwaycargo.png" alt=""
-                            class="w-[8.25rem]">
+                            class="w-[8.25rem] bg-black py-4">
                     </a>
                 </div>
 
