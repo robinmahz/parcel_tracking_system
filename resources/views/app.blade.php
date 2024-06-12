@@ -18,6 +18,10 @@
         html {
             font-family: Poppins, sans-serif !important;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -25,7 +29,8 @@
     <!-- Header -->
     <header class="bg-blue-600 text-white py-4 w-[100%] z-10" style="position: fixed">
         <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-2xl font-bold">ParcelTrack</h1>
+            <img src="https://directwaycargo.com/wp-content/uploads/2012/02/directwaycargo.png" alt=""
+                class="w-[13.25rem]">
             <nav>
                 <a href="/" class="text-white hover:text-gray-200 ml-4">Home</a>
                 <a href="#about" class="text-white hover:text-gray-200 ml-4">About</a>
