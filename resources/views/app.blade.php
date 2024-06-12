@@ -33,9 +33,9 @@
                 class="w-[13.25rem]">
             <nav>
                 <a href="/" class="text-white hover:text-gray-200 ml-4">Home</a>
-                <a href="#about" class="text-white hover:text-gray-200 ml-4">About</a>
-                <a href="#track" class="text-white hover:text-gray-200 ml-4">Track Order</a>
-                <a href="#contact" class="text-white hover:text-gray-200 ml-4">Contact</a>
+                <a href="/#about" class="text-white hover:text-gray-200 ml-4">About</a>
+                <a href="/#track" class="text-white hover:text-gray-200 ml-4">Track Order</a>
+                <a href="/#contact" class="text-white hover:text-gray-200 ml-4">Contact</a>
             </nav>
         </div>
     </header>
