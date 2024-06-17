@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcel Tracking System</title>
-    @vite('resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    @vite('resources/css/app.css')
     <style>
         body,
         html {
@@ -27,11 +26,11 @@
 
 <body class="bg-gray-100 font-sans ">
     <!-- Header -->
-    <header class="bg-blue-600 text-white py-4 w-[100%] z-10" style="position: fixed">
+    <header class=" bg-blue-600 text-white py-4 w-[100%] z-10" style="position: fixed">
         <div class="container mx-auto flex justify-between items-center px-6">
             <img src="https://directwaycargo.com/wp-content/uploads/2012/02/directwaycargo.png" alt=""
                 class="w-[13.25rem]">
-            <nav>
+            <nav class="hidden md:block">
                 <a href="/" class="text-white hover:text-gray-200 ml-4">Home</a>
                 <a href="/#about" class="text-white hover:text-gray-200 ml-4">About</a>
                 <a href="/#track" class="text-white hover:text-gray-200 ml-4">Track Order</a>

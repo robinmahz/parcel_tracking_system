@@ -11,9 +11,12 @@ class LandingController extends Controller
 {
     public function track(Request $request)
     {
-        $parcel = Parcel::where('number', $request->number)->first();
-        $parcelDetails = $parcel->parcelDetails;
-        return view('show', compact('parcelDetails'));
+        $parcelDetails = 0;
+        $parcel = Parcel::with('parcelDetails')->where('number', $request->number)->first();
+        // if ($parcel) {
+        //     $parcelDetails = $parcel->parcelDetails;
+        // }
+        return view('show', compact('parcel'));
     }
 
     /**

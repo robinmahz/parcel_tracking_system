@@ -11,8 +11,9 @@ class ParcelDetail extends Model
 
     protected $fillable = ['location', 'remarks', 'date', 'parcel_id'];
 
+    protected $with = ['parcel'];
     public function parcel()
     {
-        return $this->hasOne(Parcel::class);
+        return $this->belongsTo(Parcel::class, 'parcel_id');
     }
 }
