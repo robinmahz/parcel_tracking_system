@@ -25,7 +25,7 @@
             <div class="flex items-center  py-2">
                 <input
                     class="appearance-none bg-transparent  w-full border-b border-blue-500 text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none rounded"
-                    type="text" placeholder="First Name" aria-label="First Name" name="name">
+                    type="text" placeholder="Receivers First Name" aria-label="First Name" name="name">
                 <input
                     class="appearance-none bg-transparent  w-full border-b border-blue-500 text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none rounded"
                     type="text" placeholder="Tracking Number" aria-label="Tracking Number" name="number">

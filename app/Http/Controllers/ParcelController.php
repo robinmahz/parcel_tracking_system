@@ -39,8 +39,9 @@ class ParcelController extends Controller
      */
     public function show(Parcel $parcel)
     {
-        $parcelDetails = ParcelDetail::where('parcel_id', $parcel->id)->get();
-        return view('parcelDetails.index', compact('parcelDetails'));
+        $parcel = Parcel::with('parcelDetails')->where('id', $parcel->id)->first();
+        // $parcelDetails = ParcelDetail::where('parcel_id', $parcel->id)->get();
+        return view('parcelDetails.index', compact('parcel'));
     }
 
     /**
