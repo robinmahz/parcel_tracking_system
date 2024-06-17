@@ -19,7 +19,7 @@
     <!-- Main Section -->
     <main id="track" class="container mx-auto py-16 px-6 text-center">
         <h2 class="text-4xl font-bold text-gray-800 mb-6">Track Your Parcel</h2>
-        <p class="text-gray-600 mb-8">Enter your tracking number below to get the current status of your shipment.</p>
+        <p class="text-gray-600 mb-8">Enter your booking number below to get the current status of your shipment.</p>
         <form class="max-w-md mx-auto mb-12" action="/track" method="POST">
             @csrf
             <div class="flex items-center  py-2">
@@ -28,7 +28,7 @@
                     type="text" placeholder="Receivers First Name" aria-label="First Name" name="name">
                 <input
                     class="appearance-none bg-transparent  w-[215px] border-b border-blue-500 text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none rounded"
-                    type="text" placeholder="Tracking Number" aria-label="Tracking Number" name="number">
+                    type="text" placeholder="Booking Number" aria-label="Tracking Number" name="number">
                 <button id="about" class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
                     type="submit">
                     Track
