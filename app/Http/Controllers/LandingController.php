@@ -41,7 +41,7 @@ class LandingController extends Controller
      */
     public function store(Request $request)
     {
-        Mail::to("directwy@gmail.com")->send(new Feedback($request->all()));
+        Mail::to("directwaycargooffice@gmail.com")->queue(new Feedback($request->all()));
         return redirect('/');
     }
 
