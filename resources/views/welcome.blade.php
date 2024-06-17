@@ -22,9 +22,12 @@
         <p class="text-gray-600 mb-8">Enter your tracking number below to get the current status of your shipment.</p>
         <form class="max-w-md mx-auto mb-12" action="/track" method="POST">
             @csrf
-            <div class="flex items-center border-b border-blue-500 py-2">
+            <div class="flex items-center  py-2">
                 <input
-                    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    class="appearance-none bg-transparent  w-full border-b border-blue-500 text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none rounded"
+                    type="text" placeholder="First Name" aria-label="First Name" name="name">
+                <input
+                    class="appearance-none bg-transparent  w-full border-b border-blue-500 text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none rounded"
                     type="text" placeholder="Tracking Number" aria-label="Tracking Number" name="number">
                 <button id="about" class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
                     type="submit">
