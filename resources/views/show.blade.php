@@ -12,7 +12,7 @@
                         <p>Date: {{ $parcelDetail->date }}</p>
                         <p><strong>{!! $parcelDetail->remarks !!}</strong></p>
                         <p>Location: {{ $parcelDetail->location }}</p>
-                        <p>Parcel No: {{ $parcel->number }}</p>
+                        {{-- <p>Parcel No: {{ $parcel->number }}</p> --}}
                         @if (Auth::check())
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex gap-2">
