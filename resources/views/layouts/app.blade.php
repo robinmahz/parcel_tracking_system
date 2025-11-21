@@ -22,6 +22,13 @@
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
+        @session('success')
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded fixed right-[24%]"
+                role="alert">
+                <strong class="font-bold">Success!</strong>
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endsession
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white dark:bg-gray-800 shadow">

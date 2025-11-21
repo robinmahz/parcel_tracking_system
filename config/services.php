@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'sms' => [
+        'url' => env('AAKASH_SMS_API'),
+        'secret' => env('AAKASH_SECRET_KEY'),
+    ],
 
 ];

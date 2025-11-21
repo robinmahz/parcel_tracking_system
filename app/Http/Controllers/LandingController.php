@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Feedback;
+use App\Models\NewParcel;
 use App\Models\Parcel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -11,8 +12,15 @@ class LandingController extends Controller
 {
     public function track(Request $request)
     {
-        $parcelDetails = 0;
-        $parcel = Parcel::with('parcelDetails')->where('number', $request->number)->where('name', $request->name)->first();
+        $parcel = NewParcel::where(function ($query) use ($request) {
+            $query->where('reference_no', $request->number)
+                ->orWhere('booking_no', $request->number);
+        })
+            ->when($request->name, function ($q) use ($request) {
+                $q->where('recipient_details', 'LIKE', $request->name . '%');
+            })
+            ->first();
+
         return view('show', compact('parcel'));
     }
 

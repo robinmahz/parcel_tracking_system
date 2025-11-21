@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\NewParcelController;
 use App\Http\Controllers\ParcelController;
 use App\Http\Controllers\ParcelDetailController;
 use App\Http\Controllers\ProfileController;
@@ -12,7 +13,7 @@ Route::post('/track', [LandingController::class, 'track']);
 
 Route::get(
     '/dashboard',
-    [ParcelController::class, 'index']
+    [NewParcelController::class, 'index']
 )->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -24,6 +25,9 @@ Route::middleware('auth')->group(function () {
         'parcel' => ParcelController::class,
         'parcelDetails' => ParcelDetailController::class,
     ]);
+
+    Route::resource('new-parcel', NewParcelController::class);
+
 });
 
 require __DIR__ . '/auth.php';
