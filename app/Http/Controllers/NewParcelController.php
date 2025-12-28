@@ -22,18 +22,19 @@ class NewParcelController extends Controller
                     ->orWhere('sender_phone', 'like', "%{$search}%")
                     ->orWhere('booking_no', 'like', "%{$search}%");
             });
-        }
-        if (request()->has('type')) {
-            $status = request()->input('type');
-            if ($status === 'in_transit') {
-                $parcels->whereNotNull('tracking_no')->whereNull('delivery_date');
-            } elseif ($status === 'delivered') {
-                $parcels->whereNotNull('delivery_date');
-            } elseif ($status === 'received') {
+        } else {
+            if (request()->has('type')) {
+                $status = request()->input('type');
+                if ($status === 'in_transit') {
+                    $parcels->whereNotNull('tracking_no')->whereNull('delivery_date');
+                } elseif ($status === 'delivered') {
+                    $parcels->whereNotNull('delivery_date');
+                } elseif ($status === 'received') {
+                    $parcels->whereNotNull('shipping_received_date')->whereNull('tracking_no');
+                }
+            } else {
                 $parcels->whereNotNull('shipping_received_date')->whereNull('tracking_no');
             }
-        } else {
-            $parcels->whereNotNull('shipping_received_date')->whereNull('tracking_no');
         }
         $parcels = $parcels->orderBy('created_at', 'desc')->get();
         return view('dashboard', compact('parcels'));
@@ -82,7 +83,7 @@ class NewParcelController extends Controller
                 'auth_token' => config('services.sms.secret'),
                 'from'  => '31001',
                 'to'    => $newParcel->sender_phone,
-                'text'  => 'Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site .' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo',
+                'text'  => 'Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo',
             ));
             # Make the call using API.
             $ch = curl_init();
