@@ -16,7 +16,10 @@ class SendMailNotification extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public string $content)
+    /**
+     * Create a new message instance.
+     */
+    public function __construct(public mixed $data)
     {
     }
 
@@ -26,7 +29,7 @@ class SendMailNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tracking Notification',
+            subject: 'Tracking Notification - No Reply',
         );
     }
 
@@ -36,7 +39,7 @@ class SendMailNotification extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'email.sendEmailNotification',
+            view: 'email.sendEmailNotification',
         );
     }
 
