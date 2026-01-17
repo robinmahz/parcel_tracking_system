@@ -12,6 +12,7 @@ class NewParcel extends Model
     protected $fillable = [
         'sender_name',
         'sender_phone',
+        'sender_email',
         'recipient_details',
         'recipient_address',
         'booking_no',

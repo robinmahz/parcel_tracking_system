@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMailNotification;
 use App\Models\NewParcel;
 use Illuminate\Http\Request;
+use Mail;
 
 class NewParcelController extends Controller
 {
@@ -78,23 +80,33 @@ class NewParcelController extends Controller
      */
     public function update(Request $request, NewParcel $newParcel)
     {
+        $text = 'Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo';
         if (!$newParcel->tracking_no && $request->input('tracking_no')) {
-            $args = http_build_query(array(
-                'auth_token' => config('services.sms.secret'),
-                'from'  => '31001',
-                'to'    => $newParcel->sender_phone,
-                'text'  => 'Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo',
-            ));
-            # Make the call using API.
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, config('services.sms.url'));
-            curl_setopt($ch, CURLOPT_POST, 1); ///
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            // Response
-            $response = curl_exec($ch);
-            curl_close($ch);
+            if ($newParcel->sender_phone) {
+                $args = http_build_query(array(
+                    'auth_token' => config('services.sms.secret'),
+                    'from' => '31001',
+                    'to' => $newParcel->sender_phone,
+                    'text' => $text,
+                ));
+                # Make the call using API.
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, config('services.sms.url'));
+                curl_setopt($ch, CURLOPT_POST, 1); ///
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                // Response
+                $response = curl_exec($ch);
+                curl_close($ch);
+            }
         }
+
+        if (!$newParcel->tracking_no && $request->input('tracking_no')) {
+            if ($newParcel->sender_email) {
+                Mail::to($newParcel->sender_email)->queue(new SendMailNotification($text));
+            }
+        }
+
         $newParcel->update($request->all());
 
         return redirect()->route('dashboard')->with('success', 'Parcel updated successfully.');
