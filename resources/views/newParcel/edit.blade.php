@@ -28,7 +28,12 @@
                                     <input type="text" value="{{ $newParcel->sender_name }}" name="sender_name"
                                         class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                 </div>
-
+                                {{-- Sender email --}}
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Sender email</label>
+                                    <input type="email" value="{{ $newParcel->sender_email }}" name="sender_email"
+                                        class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                </div>
                                 <div>
                                     <label class="block text-gray-700 font-medium mb-1">Sender Phone</label>
                                     <input type="tel" value="{{ $newParcel->sender_phone }}" name="sender_phone"
@@ -278,7 +283,8 @@
                     </fieldset>
 
 
-                    <fieldset class="mb-6 border border-gray-300 rounded-lg" x-data="{ open: {{ empty($newParcel->tracking_no) ? 'true' : 'false' }} }">
+                    <fieldset class="mb-6 border border-gray-300 rounded-lg"
+                        x-data="{ open: {{ empty($newParcel->tracking_no) ? 'true' : 'false' }} }">
                         <legend class="px-4 py-2 cursor-pointer font-semibold text-gray-800" @click="open = !open">
                             Tracking Details
                             <span x-text="open ? '▲' : '▼'" class="ml-2 text-sm text-gray-500"></span>
@@ -309,7 +315,8 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="mb-6 border border-gray-300 rounded-lg" x-data="{ open: {{ empty($newParcel->in_transit_date) ? 'true' : 'false' }} }">
+                    <fieldset class="mb-6 border border-gray-300 rounded-lg"
+                        x-data="{ open: {{ empty($newParcel->in_transit_date) ? 'true' : 'false' }} }">
                         <legend class="px-4 py-2 cursor-pointer font-semibold text-gray-800" @click="open = !open">
                             Transit Details
                             <span x-text="open ? '▲' : '▼'" class="ml-2 text-sm text-gray-500"></span>
@@ -320,8 +327,7 @@
                                 {{-- In Transit Date --}}
                                 <div>
                                     <label class="block text-gray-700 font-medium mb-1">In Transit Date</label>
-                                    <input type="date" value="{{ $newParcel->in_transit_date }}"
-                                        name="in_transit_date"
+                                    <input type="date" value="{{ $newParcel->in_transit_date }}" name="in_transit_date"
                                         class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                 </div>
 

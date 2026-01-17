@@ -22,7 +22,12 @@
                                 <input type="text" name="sender_name" required
                                     class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
-
+                            {{-- Sender email --}}
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-1">Sender email</label>
+                                <input type="email" name="sender_email" 
+                                    class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
                             {{-- Sender Phone --}}
                             <div>
                                 <label class="block text-gray-700 font-medium mb-1">Sender Phone *</label>
@@ -251,7 +256,7 @@
 
                             </div>
 
-                             <div>
+                            <div>
                                 <label class="block text-gray-700 font-medium mb-1">Reference Number</label>
                                 <input type="text" name="reference_no"
                                     class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
@@ -335,18 +340,18 @@
                     </fieldset>
 
                     <div class="mb-6">
-                            <label class="block text-gray-700 font-medium mb-1">Delivery Date</label>
-                            <input type="date" name="delivery_date"
-                                class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        </div>
+                        <label class="block text-gray-700 font-medium mb-1">Delivery Date</label>
+                        <input type="date" name="delivery_date"
+                            class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
 
-                        {{-- Submit --}}
-                        <div>
-                            <button type="submit"
-                                class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition">
-                                Submit
-                            </button>
-                        </div>
+                    {{-- Submit --}}
+                    <div>
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition">
+                            Submit
+                        </button>
+                    </div>
                 </form>
 
             </div>
