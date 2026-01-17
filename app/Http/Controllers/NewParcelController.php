@@ -101,7 +101,7 @@ class NewParcelController extends Controller
             }
         }
 
-        if (!$newParcel->tracking_no && $request->input('tracking_no')) {
+        if ($request->input('tracking_no')) {
             if ($newParcel->sender_email) {
                 Mail::to($newParcel->sender_email)->queue(new SendMailNotification($text));
             }
