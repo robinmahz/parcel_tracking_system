@@ -101,7 +101,7 @@ class NewParcelController extends Controller
             }
         }
 
-        if ($request->input('tracking_no')) {
+        if (!$newParcel->tracking_no && $request->input('tracking_no')) {
             if ($newParcel->sender_email) {
                 $emailData = [
                     'tracking_no' => $request->input('tracking_no'),
