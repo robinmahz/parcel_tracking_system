@@ -80,7 +80,7 @@ class NewParcelController extends Controller
      */
     public function update(Request $request, NewParcel $newParcel)
     {
-        $text = 'Receiver: ' . $newParcel->recipient_details . 'Country: ' . $newParcel->recipient_address . ' Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo';
+        $text = 'Receiver: ' . $newParcel->recipient_details . ' Country: ' . $newParcel->recipient_address . ' Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo';
         if (!$newParcel->tracking_no && $request->input('tracking_no')) {
             if ($newParcel->sender_phone) {
                 $args = http_build_query(array(
