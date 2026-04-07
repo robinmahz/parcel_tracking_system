@@ -38,7 +38,7 @@ class NewParcelController extends Controller
                 $parcels->whereNotNull('shipping_received_date')->whereNull('tracking_no');
             }
         }
-        $parcels = $parcels->orderBy('created_at', 'desc')->get();
+        $parcels = $parcels->orderBy('booking_no', 'desc')->get();
         return view('dashboard', compact('parcels'));
     }
 
