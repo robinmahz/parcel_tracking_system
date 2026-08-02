@@ -110,7 +110,7 @@ class NewParcelController extends Controller
                     CURLOPT_FOLLOWLOCATION => true,
                     CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
                     CURLOPT_POST           => true,
-                    CURLOPT_CONNECTTIMEOUT => 10,
+                    CURLOPT_CONNECTTIMEOUT => 30,
                     CURLOPT_POSTFIELDS     => json_encode($payload),
                     CURLOPT_HTTPAUTH       => CURLAUTH_BASIC,
                     CURLOPT_USERPWD        => "{$username}:{$password}",
