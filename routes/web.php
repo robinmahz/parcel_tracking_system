@@ -5,6 +5,7 @@ use App\Http\Controllers\NewParcelController;
 use App\Http\Controllers\ParcelController;
 use App\Http\Controllers\ParcelDetailController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('/', LandingController::class);
@@ -27,7 +28,6 @@ Route::middleware('auth')->group(function () {
     ]);
 
     Route::resource('new-parcel', NewParcelController::class);
-
 });
 
 require __DIR__ . '/auth.php';

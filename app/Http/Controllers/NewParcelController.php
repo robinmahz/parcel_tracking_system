@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\SendMailNotification;
 use App\Models\NewParcel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Mail;
 
 class NewParcelController extends Controller
@@ -83,21 +84,60 @@ class NewParcelController extends Controller
         $text = 'Receiver: ' . $newParcel->recipient_details . ' Country: ' . $newParcel->recipient_address . ' Tracking No: ' . $request->input('tracking_no') . '. Tracking Site: ' . $request->tracking_site . ' Tracking url: ' . $request->input('tracking_url') . ' - Direct Way Cargo';
         if (!$newParcel->tracking_no && $request->input('tracking_no')) {
             if ($newParcel->sender_phone) {
-                $args = http_build_query(array(
-                    'auth_token' => config('services.sms.secret'),
-                    'from' => '31001',
-                    'to' => $newParcel->sender_phone,
-                    'text' => $text,
-                ));
-                # Make the call using API.
+
+                $username = config('services.sms.username');
+                $password = config('services.sms.password');
+                $url      = config('services.sms.url');
+                $code     = config('services.sms.code');
+
+                $payload = [
+                    'IsClientLogin'    => 'N',
+                    'UserName'         => $username,
+                    'Password'         => $password,
+                    'OrganisationCode' => $code,
+                    'Message'          => $text,
+                    'ReceiverNo'       => $newParcel->sender_phone,
+                ];
+
                 $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, config('services.sms.url'));
-                curl_setopt($ch, CURLOPT_POST, 1); ///
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                // Response
+
+                curl_setopt_array($ch, [
+                    CURLOPT_URL            => $url,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING       => '',
+                    CURLOPT_MAXREDIRS      => 10,
+                    CURLOPT_TIMEOUT        => 30,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_POST           => true,
+                    CURLOPT_CONNECTTIMEOUT => 10,
+                    CURLOPT_POSTFIELDS     => json_encode($payload),
+                    CURLOPT_HTTPAUTH       => CURLAUTH_BASIC,
+                    CURLOPT_USERPWD        => "{$username}:{$password}",
+                    CURLOPT_HTTPHEADER     => [
+                        'OrganisationCode: DirectWayUser',
+                        'Content-Type: application/json',
+                        'Accept: application/json',
+                    ],
+                ]);
+
                 $response = curl_exec($ch);
+                $error    = curl_error($ch);
+                $errno    = curl_errno($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
                 curl_close($ch);
+
+                if ($errno) {
+                    Log::error([
+                        'success' => false,
+                        'error'   => $error,
+                    ]);
+                }
+                Log::info([
+                    'http_code' => $httpCode,
+                    'response'  => json_decode($response, true) ?? $response,
+                ]);
             }
         }
 

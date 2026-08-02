@@ -35,8 +35,10 @@ return [
         ],
     ],
     'sms' => [
-        'url' => env('AAKASH_SMS_API'),
-        'secret' => env('AAKASH_SECRET_KEY'),
+        'url' => env('SMS_HOST'),
+        'username' => env('SMS_USERNAME'),
+        'password' => env('SMS_PASSWORD'),
+        'code' => env('SMS_CODE'),
     ],
 
 ];
